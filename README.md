@@ -18,7 +18,7 @@ Download [SAM checkpoint](https://dl.fbaipublicfiles.com/segment_anything/sam_vi
 ### Training on one GPU
 
 ```bash
-python baseline.py
+python SAM.py
 ```
 
 ### Inference
