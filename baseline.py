@@ -42,7 +42,7 @@ torch.cuda.empty_cache()
 
 
 
-def eval_psnr(loader, model,vlm_model,processor,mamba_model,tokenizer,eval_type=None,device=None):
+def eval_psnr(loader, model,eval_type=None,device=None):
     model.eval()
     
     pbar = tqdm(total=len(loader), leave=False, desc='val')
@@ -418,7 +418,7 @@ def main():
             lr_scheduler.step()
         
         
-        result1, result2, result3, result4 = eval_psnr(test_dataloader, vlsam_model,vlm_model,processor,mamba_model,tokenizer,
+        result1, result2, result3, result4 = eval_psnr(test_dataloader, vlsam_model,
                 eval_type='cod',device=device)
         print({'Sm': result1})
         print({'Em': result2})
