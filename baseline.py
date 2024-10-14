@@ -40,14 +40,6 @@ from utils_downstream.saliency_metric import cal_mae,cal_fm,cal_sm,cal_em,cal_wf
 torch.manual_seed(2023)
 torch.cuda.empty_cache()
 
-# torch.distributed.init_process_group(backend="gloo")
-'''
-os.environ["OMP_NUM_THREADS"] = "4"  # export OMP_NUM_THREADS=4
-os.environ["OPENBLAS_NUM_THREADS"] = "4"  # export OPENBLAS_NUM_THREADS=4
-os.environ["MKL_NUM_THREADS"] = "6"  # export MKL_NUM_THREADS=6
-os.environ["VECLIB_MAXIMUM_THREADS"] = "4"  # export VECLIB_MAXIMUM_THREADS=4
-os.environ["NUMEXPR_NUM_THREADS"] = "6"  # export NUMEXPR_NUM_THREADS=6
-'''
 
 
 def eval_psnr(loader, model,vlm_model,processor,mamba_model,tokenizer,eval_type=None,device=None):
@@ -406,7 +398,7 @@ def main():
             if args.use_amp:
                 ## AMP
                 with torch.autocast(device_type="cuda", dtype=torch.float16):
-                    medsam_pred = vlsam_model(image,text_features)
+                    medsam_pred = vlsam_model(image)
                     loss = seg_loss(medsam_pred, gt2D) + ce_loss(
                         medsam_pred, gt2D.float()
                     )
