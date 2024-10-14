@@ -2,10 +2,9 @@
 
 
 ## Installation
-1. Create a virtual environment `conda create -n medsam python=3.10 -y` and activate it `conda activate medsam`
+1. Create a virtual environment `conda create -n medsam python=3.10 -y` and activate it `conda activate VLSAM`
 2. Install [Pytorch 2.0](https://pytorch.org/get-started/locally/)
-3. `git clone https://github.com/bowang-lab/MedSAM`
-4. Enter the SAM folder `cd SAM` and run `pip install -e .`
+3. Or install the same environment as `https://github.com/bowang-lab/MedSAM`
 
 
 
@@ -19,13 +18,13 @@ Download [SAM checkpoint](https://dl.fbaipublicfiles.com/segment_anything/sam_vi
 ### Training on one GPU
 
 ```bash
-python train_sam_blip_mamba.py
+python baseline.py
 ```
 
 ### Inference
 
 ```bash
-python Inference_blip_mamba.py
+python Inference.py
 ```
 
 
