@@ -29,15 +29,12 @@ import glob
 from PIL import Image
 from torchvision import transforms
 from typing import Any, Optional, Tuple, Type
-import utils
-from transformers import AutoModel, AutoTokenizer
 import torch
 from torch.optim.lr_scheduler import CosineAnnealingLR
-from transformers import AutoModel, AutoTokenizer,AutoProcessor,MambaModel,BlipProcessor, BlipForConditionalGeneration
 from functools import partial
 from utils_downstream.saliency_metric import cal_mae,cal_fm,cal_sm,cal_em,cal_wfm, cal_dice, cal_iou,cal_ber,cal_acc
 
-torch.manual_seed(2023)
+torch.manual_seed(2024)
 torch.cuda.empty_cache()
 
 
@@ -352,9 +349,8 @@ def main():
     best_accuracy =0
     train_dataset = NpyDataset(args.tr_npy_path)
     
-    test_dataset = NpyDataset('data/CHAMELEON')
-    #test_dataset = NpyDataset('data/COD10K/COD10K_TestingDataset')
-
+    test_dataset = NpyDataset('data/...')
+   
     print("Number of training samples: ", len(train_dataset))
     train_dataloader = DataLoader(
         train_dataset,
