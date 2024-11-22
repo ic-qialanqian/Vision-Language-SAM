@@ -18,13 +18,13 @@ Download [SAM checkpoint](https://dl.fbaipublicfiles.com/segment_anything/sam_vi
 ### Training on one GPU
 
 ```bash
-python SAM.py
+python train.py
 ```
 
 ### Inference
 
 ```bash
-python Inference.py
+python Inference_vlsam.py
 ```
 
 
